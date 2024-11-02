@@ -9,9 +9,19 @@ const userRouter = require("./routes/user");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "https://task-management-app-git-main-dharamveer-singhs-projects.vercel.app"
+];
+
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
 app.use(bodyParser.json());
