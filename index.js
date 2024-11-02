@@ -12,7 +12,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173", 
   "https://task-management-app-git-main-dharamveer-singhs-projects.vercel.app",
-  "https://task-management-2y0nhcore-dharamveer-singhs-projects.vercel.app/"
+  "https://task-management-2y0nhcore-dharamveer-singhs-projects.vercel.app"
 ];
 
 app.use(cors({
